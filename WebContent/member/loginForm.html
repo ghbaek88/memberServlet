@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+   table
+   {
+   background-color: #ffffff;
+   }
+  </style>
+<meta charset="UTF-8">
+<title>로그인</title>
+</head>
+<body>
+ <h3 align="center">로그인</h3>
+  <form name="loginForm" method="post" action="/memberServlet/LoginServlet">
+   <table border="1" cellspacing="0" cellpadding="3" align="center">
+   
+    <tr>
+     <td width="100" align="center">아이디</td>
+     <td><input type="text" size="15" name="id" placeholder="아이디입력"></td>
+    </tr>
+    
+    <tr>
+     <td width="100" align="center">비밀번호</td>
+     <td><input type="text" size="15" name="pwd" placeholder="비밀번호입력"></td>
+    </tr>   
+    
+    <tr> 
+     <td colspan="2" align="center">
+	 <input type="button" onclick="javascript:checkLoginFrom()" value="로그인"> &emsp; 
+	 <input type="button" onclick=javascript:location.href='http://localhost:8080/memberServlet/member/writeForm.html' value="회원가입" ></td>
+    </tr>
+    
+   </table>  
+  </form>
+</body>   
+
+ <script>
+ function checkLoginFrom(){
+	if(document.loginForm.id.value == ""){
+        alert("아이디를 입력하세요.");
+       document.loginForm.id.focus();
+    } else if(document.loginForm.pwd.value == "") {
+       alert("비밀번호를 입력하세요.");
+       document.loginForm.pwd.focus();
+    } else  {
+    	document.loginForm.submit();
+    } 
+ }
+ </script>
+ 
+</html>
