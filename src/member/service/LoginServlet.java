@@ -40,11 +40,10 @@ public class LoginServlet extends HttpServlet {
     	PrintWriter out = response.getWriter();
     	out.println("<html>");
     	out.println("<head>");
-    	out.println("<title>회원가입</title>");
-	
+    	out.println("<title>회원가입</title>");	
 		for(int i=0; i<ar.size(); i++) {
 			if(ar.get(i).getId().equals(id) && ar.get(i).getPwd().equals(pwd)) {
-				out.println(ar.get(i).getName()+"님 로그인 성공");
+				out.println(ar.get(i).getName()+"님이 로그인 하셨습니다.");
 				sw = 1;
 			}				
 		}    		
