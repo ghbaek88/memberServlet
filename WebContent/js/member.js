@@ -20,8 +20,6 @@ function checkWriteForm(){
     } 
  }
 
-
-
 function checkPost(){
 	new daum.Postcode({
         oncomplete: function(data) { // : 는 제이슨 표기법이다.
@@ -60,3 +58,16 @@ function checkPost(){
         }
     }).open();
 }
+
+function checkLoginForm(){
+	if(document.loginForm.id.value == ""){
+        alert("아이디를 입력하세요.");
+       document.loginForm.id.focus();
+    } else if(document.loginForm.pwd.value == "") {
+       alert("비밀번호를 입력하세요.");
+       document.loginForm.pwd.focus();
+    } else  {
+    	document.loginForm.submit();
+    } 
+}
+

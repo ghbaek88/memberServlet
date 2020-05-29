@@ -14,11 +14,9 @@ import member.been.MemberDTO;
 import member.dao.MemberDAO;
 
 
-//@WebServlet("/LoginServlet")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	int sw = 0;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -31,9 +29,8 @@ public class LoginServlet extends HttpServlet {
 		String pwd = request.getParameter("pwd");
 		
 		// DB 
-		MemberDAO dao = new MemberDAO();
-		ArrayList<MemberDTO> ar = dao.selectAll();
-
+		MemberDAO memberDAO = MemberDAO.getInstance();
+		String name = memberDAO.loginMember(id, pwd);
 		
 		// 응답
 		response.setContentType("text/html;charset=UTF-8");
@@ -41,20 +38,13 @@ public class LoginServlet extends HttpServlet {
     	out.println("<html>");
     	out.println("<head>");
     	out.println("<title>회원가입</title>");	
-		for(int i=0; i<ar.size(); i++) {
-			if(ar.get(i).getId().equals(id) && ar.get(i).getPwd().equals(pwd)) {
-				out.println(ar.get(i).getName()+"님이 로그인 하셨습니다.");
-				sw = 1;
-			}				
-		}    		
-    	if(sw == 0) out.println("로그인실패");
+   
+    	if(name == null) out.println("로그인실패"); 
+    	else out.println(name+"님이 로그인하셨습니다.");    	 
     	
     	out.println("<body>");
     	out.println("</body>");    	
     	out.println("</head>");
     	out.println("</html>");
 	}
-	
-	
-	
 }

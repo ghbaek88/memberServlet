@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-   table
-   {
-   background-color: #ffffff;
-   }
-  </style>
 <meta charset="UTF-8">
 <title>로그인</title>
 </head>
@@ -27,26 +21,12 @@
     
     <tr> 
      <td colspan="2" align="center">
-	 <input type="button" onclick="javascript:checkLoginFrom()" value="로그인"> &emsp; 
-	 <input type="button" onclick=javascript:location.href='http://localhost:8080/memberServlet/member/writeForm.html' value="회원가입" ></td>
+	 <input type="button" onclick="checkLoginForm()" value="로그인"> &emsp; 
+	 <input type="button" onclick=location.href='writeForm.html' value="회원가입" ></td>
     </tr>
     
    </table>  
   </form>
 </body>   
-
- <script>
- function checkLoginFrom(){
-	if(document.loginForm.id.value == ""){
-        alert("아이디를 입력하세요.");
-       document.loginForm.id.focus();
-    } else if(document.loginForm.pwd.value == "") {
-       alert("비밀번호를 입력하세요.");
-       document.loginForm.pwd.focus();
-    } else  {
-    	document.loginForm.submit();
-    } 
- }
- </script>
- 
+ <script type="text/javascript" src="../js/member.js"></script>
 </html>

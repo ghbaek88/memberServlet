@@ -67,7 +67,8 @@ public class WriteServlet extends HttpServlet {
     	if(su == 1) {
     		out.println("회원가입 성공!");
     		out.println("<br>");
-    		out.println("<input type=button value=로그인 onclick=javascript:location.href='http://localhost:8080/memberServlet/member/loginForm.html'>");
+    		out.println("<input type=button value=로그인 "
+    				+ "onclick=location.href='/memberServlet/member/loginForm.html'>");
     	}
     	else 
     		out.println("회원가입 실패!");
